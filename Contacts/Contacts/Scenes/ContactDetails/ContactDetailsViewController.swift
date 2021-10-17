@@ -24,12 +24,16 @@ class ContactDetailsViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         gradientView.setGradientBackground()
     }
-
+    @IBAction func onclickEdit(_ sender: Any) {
+        presentEditContact()
+    }
+    
 }
 
 extension ContactDetailsViewController {
     func setUI() {
         self.tableView.tableFooterView = UIView(frame: .zero)
+        clearBottomBorderColor()
     }
     
     func updateUI() {
@@ -50,5 +54,22 @@ extension ContactDetailsViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ContactDetailsViewController {
+    // MARK: - Navigation
+    func presentEditContact() {
+        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
+            return
+        }
+        addEditVC.contact = contact
+        let navigationVC = UINavigationController(rootViewController: addEditVC)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: false, completion: nil)
     }
 }

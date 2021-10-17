@@ -16,3 +16,12 @@ extension UIViewController {
     }
 }
 
+extension UITableViewController {
+    func clearBottomBorderColor() {
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        navigationBar.isTranslucent = false
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+    }
+}
+

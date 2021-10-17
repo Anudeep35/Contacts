@@ -27,7 +27,10 @@ class ContactsViewController: UIViewController {
         viewModel.initFetchContacts()
     }
 
-
+    @IBAction func onclickAdd(_ sender: Any) {
+        presentAddContact()
+    }
+    
 }
 
 extension ContactsViewController {
@@ -63,6 +66,8 @@ extension ContactsViewController {
 
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Table view data source
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
@@ -97,12 +102,22 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ContactsViewController {
+    // MARK: - Navigation
     func pushToContactDetails(for indexPath:IndexPath) {
         guard let contactDetailsVC = storyboard?.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController else {
             return
         }
         contactDetailsVC.contact = viewModel.getContact(at: indexPath)
         navigationController?.pushViewController(contactDetailsVC, animated: true)
+    }
+
+    func presentAddContact() {
+        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
+            return
+        }
+        let navigationVC = UINavigationController(rootViewController: addEditVC)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: false, completion: nil)
     }
 }
 
