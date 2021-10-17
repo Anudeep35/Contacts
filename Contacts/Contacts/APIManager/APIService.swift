@@ -65,7 +65,7 @@ extension APIService {
                 return
             }
             
-            if httpResponse.statusCode == 200 {
+            if httpResponse.statusCode >= 200 || httpResponse.statusCode < 299 {
                 guard let data = data  else {
                     completion(.failure(.invalidData))
                     return

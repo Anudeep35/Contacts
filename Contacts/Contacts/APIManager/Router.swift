@@ -7,22 +7,22 @@
 
 import Foundation
 
+enum RequestType: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+}
+
 enum Router {
     case getContacts(page: Int)
     case updateContact(id: Int)
     
     var scheme: String {
-        switch self {
-        case .getContacts, .updateContact:
-            return "https"
-        }
+        return "https"
     }
     
     var host: String {
-        switch self {
-        case .getContacts, .updateContact:
-            return "reqres.in"
-        }
+        return "reqres.in"
     }
     
     var path: String {
@@ -50,9 +50,12 @@ enum Router {
     var method: String {
         switch self {
         case .getContacts:
-            return "GET"
-        case .updateContact:
-            return "PUT"
+            return RequestType.get.rawValue
+        case .updateContact(let id):
+            if id != 0 {
+                return RequestType.put.rawValue
+            }
+            return RequestType.post.rawValue
         }
     }
 }
