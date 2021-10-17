@@ -11,6 +11,11 @@ class ContactDetailsViewController: UITableViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView! {
+        didSet {
+            avatarImageView.circleCorner()
+        }
+    }
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var contactIdLabel: UILabel!
     
@@ -41,7 +46,7 @@ extension ContactDetailsViewController {
     func setUI() {
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.navigationController?.navigationBar.tintColor = .theme
-        clearBottomBorderColor()
+        clearNavigationBottomBorderColor()
     }
     
     func updateUI() {
@@ -50,6 +55,7 @@ extension ContactDetailsViewController {
         }
         nameLable.text = contact.fullName
         contactIdLabel.text = contact.contactId
+        avatarImageView.loadAvatar(avatar: contact.avatar)
     }
 }
 

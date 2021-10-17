@@ -107,31 +107,31 @@
                         <sections>
                             <tableViewSection id="8SB-hl-aYd">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="280" id="Sge-Vk-ay0">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="280"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="Sge-Vk-ay0">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sge-Vk-ay0" id="T0c-AL-fW9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yh2-Hw-hs8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nWJ-d1-n7y">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJo-VQ-eh7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MWv-cC-YNR">
-                                                                            <rect key="frame" x="157" y="20" width="100" height="100"/>
+                                                                            <rect key="frame" x="147" y="20" width="120" height="120"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="100" id="PQw-Or-Z6W"/>
-                                                                                <constraint firstAttribute="width" constant="100" id="vIe-ih-BQx"/>
+                                                                                <constraint firstAttribute="height" constant="120" id="PQw-Or-Z6W"/>
+                                                                                <constraint firstAttribute="width" constant="120" id="vIe-ih-BQx"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbA-fc-81m">
-                                                                            <rect key="frame" x="10" y="140" width="394" height="20.5"/>
+                                                                            <rect key="frame" x="10" y="160" width="394" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EMq-Ru-HMC">
-                                                            <rect key="frame" x="0.0" y="190" width="414" height="74.5"/>
+                                                            <rect key="frame" x="0.0" y="210" width="414" height="74.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dJF-a8-gvS">
                                                                     <rect key="frame" x="0.0" y="0.0" width="103.5" height="74.5"/>
@@ -242,7 +242,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="92w-0Z-djj">
-                                        <rect key="frame" x="0.0" y="308" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="328" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="92w-0Z-djj" id="Nbg-Fm-wNu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -292,6 +292,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="avatarImageView" destination="MWv-cC-YNR" id="uUi-El-N0f"/>
                         <outlet property="contactIdLabel" destination="Fyz-vp-GZx" id="Xbh-jV-AIs"/>
                         <outlet property="gradientView" destination="Yh2-Hw-hs8" id="jlq-TP-Vck"/>
                         <outlet property="nameLable" destination="gbA-fc-81m" id="FeR-6V-dq7"/>
@@ -526,6 +527,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="avatarImageView" destination="MD1-fO-scE" id="Jt2-xn-bMw"/>
                         <outlet property="doneBarButton" destination="odu-Jh-Se9" id="stv-Hf-hrp"/>
                         <outlet property="emailTF" destination="TNa-3S-rYt" id="w6V-VE-PTd"/>
                         <outlet property="firstNameTF" destination="jeZ-PS-CwQ" id="H6b-aX-xHO"/>

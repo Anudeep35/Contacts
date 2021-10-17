@@ -14,10 +14,7 @@ extension UIViewController {
         alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-}
-
-extension UITableViewController {
-    func clearBottomBorderColor() {
+    func clearNavigationBottomBorderColor() {
         guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.isTranslucent = false
         navigationBar.setBackgroundImage(UIImage(), for: .default)

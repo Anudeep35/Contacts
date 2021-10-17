@@ -101,7 +101,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
         let contact = viewModel.getContact(at: indexPath)
-        cell.nameLabel.text = contact.fullName
+        cell.updateCell(contact: contact)
         return cell
     }
 }

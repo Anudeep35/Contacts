@@ -19,6 +19,11 @@ class AddEditContactViewController: UITableViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView! {
+        didSet {
+            avatarImageView.circleCorner()
+        }
+    }
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var mobileTF: UITextField!
@@ -106,7 +111,7 @@ extension AddEditContactViewController {
     // MARK: - Private methods
     private func setUI() {
         self.tableView.tableFooterView = UIView(frame: .zero)
-        clearBottomBorderColor()
+        clearNavigationBottomBorderColor()
         doneBarButton.isEnabled = false
         [firstNameTF, lastNameTF, mobileTF, emailTF].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
         setContact()
@@ -120,6 +125,7 @@ extension AddEditContactViewController {
         lastNameTF.text = contact.lastName
         mobileTF.text = contact.contactId
         emailTF.text = contact.email
+        avatarImageView.loadAvatar(avatar: contact.avatar)
         [mobileTF, emailTF].forEach({$0?.isEnabled = false })
     }
     
