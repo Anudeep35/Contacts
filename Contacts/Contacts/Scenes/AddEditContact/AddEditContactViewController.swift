@@ -23,11 +23,32 @@ class AddEditContactViewController: UITableViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
+    lazy var viewModel: AddEditVieModel = {
+        return AddEditVieModel()
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let _activityIndicator  = UIActivityIndicatorView()
+        _activityIndicator.color = .gray
+        _activityIndicator.hidesWhenStopped = true
+        _activityIndicator.translatesAutoresizingMaskIntoConstraints = true
+        tableView.addSubview(_activityIndicator)
+        _activityIndicator.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        _activityIndicator.autoresizingMask = [
+            .flexibleLeftMargin,
+            .flexibleRightMargin,
+            .flexibleTopMargin,
+            .flexibleBottomMargin
+        ]
+        return _activityIndicator
+    }()
+    
     var contact: Contact?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        initAddEditViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,9 +60,39 @@ class AddEditContactViewController: UITableViewController {
         dismiss(animated: false, completion: nil)
     }
     @IBAction func onclickDone(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        view.endEditing(true)
+        viewModel.updateContact(contact: Contact(id: contact?.id, firstName: firstNameTF.text, lastName: lastNameTF.text, avatar: nil, email: nil))
     }
 
+}
+
+extension AddEditContactViewController {
+    func initAddEditViewModel() {
+        viewModel.showAlert = { [weak self] () in
+            DispatchQueue.main.async {
+                if let message = self?.viewModel.alertMessage {
+                    self?.showAlert(message)
+                }
+            }
+        }
+        
+        viewModel.updateLoadingStatus = { [weak self] () in
+            DispatchQueue.main.async {
+                let isLoading = self?.viewModel.isLoading ?? false
+                if isLoading {
+                    self?.activityIndicator.startAnimating()
+                }else {
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        
+        viewModel.dismiss = { [weak self] () in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self?.dismiss(animated: false, completion: nil)
+            }
+        }
+    }
 }
 
 extension AddEditContactViewController {

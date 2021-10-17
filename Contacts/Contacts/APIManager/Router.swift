@@ -9,17 +9,18 @@ import Foundation
 
 enum Router {
     case getContacts(page: Int)
+    case updateContact(id: Int)
     
     var scheme: String {
         switch self {
-        case .getContacts:
+        case .getContacts, .updateContact:
             return "https"
         }
     }
     
     var host: String {
         switch self {
-        case .getContacts:
+        case .getContacts, .updateContact:
             return "reqres.in"
         }
     }
@@ -28,6 +29,12 @@ enum Router {
         switch self {
         case .getContacts:
             return "/api/users"
+        case .updateContact(let id):
+            let endPoint = "/api/users"
+            if id != 0 {
+                return endPoint + "/\(id)"
+            }
+            return endPoint
         }
     }
     
@@ -35,6 +42,8 @@ enum Router {
         switch self {
         case .getContacts(let page):
             return [URLQueryItem(name: "page", value: String(page))]
+        case .updateContact:
+            return []
         }
     }
     
@@ -42,6 +51,8 @@ enum Router {
         switch self {
         case .getContacts:
             return "GET"
+        case .updateContact:
+            return "PUT"
         }
     }
 }

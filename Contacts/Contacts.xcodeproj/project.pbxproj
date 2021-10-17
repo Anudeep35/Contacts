@@ -10,6 +10,7 @@
 		FB5604A5271BC18D00D9B0DB /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604A4271BC18D00D9B0DB /* ContactDetailsViewController.swift */; };
 		FB5604AA271BD4BB00D9B0DB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604A9271BD4BB00D9B0DB /* UIView+Extension.swift */; };
 		FB5604B0271BF7DE00D9B0DB /* AddEditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604AF271BF7DE00D9B0DB /* AddEditContactViewController.swift */; };
+		FB5604B5271C180A00D9B0DB /* AddEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604B4271C180A00D9B0DB /* AddEditViewModel.swift */; };
 		FB60AD95271B11D2007EBD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD94271B11D2007EBD66 /* AppDelegate.swift */; };
 		FB60AD97271B11D2007EBD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */; };
 		FB60AD99271B11D2007EBD66 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD98271B11D2007EBD66 /* ContactsViewController.swift */; };
@@ -47,6 +48,7 @@
 		FB5604A4271BC18D00D9B0DB /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		FB5604A9271BD4BB00D9B0DB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FB5604AF271BF7DE00D9B0DB /* AddEditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditContactViewController.swift; sourceTree = "<group>"; };
+		FB5604B4271C180A00D9B0DB /* AddEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewModel.swift; sourceTree = "<group>"; };
 		FB60AD91271B11D2007EBD66 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB60AD94271B11D2007EBD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				FB5604AF271BF7DE00D9B0DB /* AddEditContactViewController.swift */,
+				FB5604B4271C180A00D9B0DB /* AddEditViewModel.swift */,
 			);
 			path = AddEditContact;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				FB60ADDF271B2180007EBD66 /* Router.swift in Sources */,
 				FB60AD97271B11D2007EBD66 /* SceneDelegate.swift in Sources */,
 				FB60ADE4271B25DA007EBD66 /* Contact.swift in Sources */,
+				FB5604B5271C180A00D9B0DB /* AddEditViewModel.swift in Sources */,
 				FB5604B0271BF7DE00D9B0DB /* AddEditContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
