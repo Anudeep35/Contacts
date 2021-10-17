@@ -99,7 +99,9 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell") as! ContactTableViewCell
+        guard let cell: ContactTableViewCell = tableView.dequeueCell(withType: ContactTableViewCell.self, for: indexPath) else {
+            return UITableViewCell()
+        }
         let contact = viewModel.getContact(at: indexPath)
         cell.updateCell(contact: contact)
         return cell
@@ -109,20 +111,18 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
 extension ContactsViewController {
     // MARK: - Navigation
     private func pushToContactDetails(for indexPath:IndexPath) {
-        guard let contactDetailsVC = storyboard?.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController else {
+        guard let contactDetailsVC: ContactDetailsViewController = storyboard?.instantiate() else {
             return
         }
         contactDetailsVC.contact = viewModel.getContact(at: indexPath)
-        navigationController?.pushViewController(contactDetailsVC, animated: true)
+        navigate(to: contactDetailsVC, type: .push)
     }
 
     private func presentAddContact() {
-        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
+        guard let addEditVC: AddEditContactViewController = storyboard?.instantiate() else {
             return
         }
-        let navigationVC = UINavigationController(rootViewController: addEditVC)
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: false, completion: nil)
+        navigate(to: addEditVC, type: .present)
     }
 }
 

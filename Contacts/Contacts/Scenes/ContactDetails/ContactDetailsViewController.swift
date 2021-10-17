@@ -78,12 +78,10 @@ extension ContactDetailsViewController {
 extension ContactDetailsViewController {
     // MARK: - Navigation
     private func presentEditContact() {
-        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
+        guard let addEditVC: AddEditContactViewController = storyboard?.instantiate() else {
             return
         }
         addEditVC.contact = contact
-        let navigationVC = UINavigationController(rootViewController: addEditVC)
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: false, completion: nil)
+        navigate(to: addEditVC, type: .present)
     }
 }
