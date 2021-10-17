@@ -98,7 +98,11 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ContactsViewController {
     func pushToContactDetails(for indexPath:IndexPath) {
-
+        guard let contactDetailsVC = storyboard?.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController else {
+            return
+        }
+        contactDetailsVC.contact = viewModel.getContact(at: indexPath)
+        navigationController?.pushViewController(contactDetailsVC, animated: true)
     }
 }
 

@@ -41,6 +41,13 @@ struct Contact: Codable {
         }
         return URL(string: avatar)
     }
+    
+    var contactId: String {
+        guard let id = id else {
+            return "N/A"
+        }
+        return String(id)
+    }
 }
 
 struct ContactSection {
