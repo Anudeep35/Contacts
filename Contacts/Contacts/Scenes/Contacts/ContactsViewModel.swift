@@ -10,9 +10,11 @@ import UIKit
 
 class ContactsViewModel {
     
-    let apiService: APIServiceProtocol
+    // MARK: - Private properties
+    private let apiService: APIServiceProtocol
     private var contacts: [Contact] = [Contact]()
     
+    // MARK: - Callbacks or observers
     private var contactSections: [ContactSection] = [ContactSection]() {
         didSet {
             self.reloadTableView?()
@@ -35,6 +37,14 @@ class ContactsViewModel {
     var showAlert: (()->())?
     var reloadTableView: (()->())?
     
+    // MARK: - Initializers
+    
+    /**
+     To initialize with apiService
+     
+     - parameter apiService: APIService to make network cal
+     */
+    
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
@@ -42,6 +52,7 @@ class ContactsViewModel {
 }
 
 extension ContactsViewModel {
+    // MARK: - Public methods
     func initFetchContacts() {
         guard !isLoading else { return }
         
@@ -56,21 +67,6 @@ extension ContactsViewModel {
             }
             self.isLoading = false
         }
-    }
-    
-    private func processContacts() {
-        let sortedContacts = contacts.sorted(by: { $0.fullName < $1.fullName })
-        
-        let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
-        
-        var _contactsections: [ContactSection] = []
-        
-        for title in sectionTitles {
-            let contacts = sortedContacts.filter({ $0.fullName.capitalized.hasPrefix(title)})
-            let section = ContactSection.init(sectionTitle: title, contacts: contacts)
-            _contactsections.append(section)
-        }
-        self.contactSections = _contactsections
     }
     
     var numberOfSections: Int {
@@ -95,4 +91,21 @@ extension ContactsViewModel {
     func getContact(at indexPath: IndexPath) -> Contact {
         return contactSections[indexPath.section].contacts[indexPath.row]
     }
+    
+    // MARK: - Private methods
+    private func processContacts() {
+        let sortedContacts = contacts.sorted(by: { $0.fullName < $1.fullName })
+        
+        let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
+        
+        var _contactsections: [ContactSection] = []
+        
+        for title in sectionTitles {
+            let contacts = sortedContacts.filter({ $0.fullName.capitalized.hasPrefix(title)})
+            let section = ContactSection.init(sectionTitle: title, contacts: contacts)
+            _contactsections.append(section)
+        }
+        self.contactSections = _contactsections
+    }
+    
 }

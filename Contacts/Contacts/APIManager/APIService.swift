@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK:- APIErrors
 enum APIError: Error {
     case requestFailed
     case jsonConversionFailure
@@ -23,13 +24,18 @@ enum APIError: Error {
 }
 
 protocol APIServiceProtocol {
+    //MARK: - Protocols
     func request<T: Codable>(router: Router, parameters: T?, completion: @escaping (Result<T, APIError>) -> ())
 }
 
 class APIService: APIServiceProtocol {
-    var dataTask: URLSessionDataTask?
-    let defaultSession = URLSession(configuration: .default)
-    
+    // MARK: - Private properties
+    private var dataTask: URLSessionDataTask?
+    private let defaultSession = URLSession(configuration: .default)
+}
+
+extension APIService {
+    // MARK: - Public methods
     func request<T: Codable>(router: Router, parameters: T?, completion: @escaping (Result<T, APIError>) -> ()) {
         
         var components = URLComponents()

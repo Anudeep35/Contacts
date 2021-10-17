@@ -9,6 +9,7 @@ import UIKit
 
 class AddEditContactViewController: UITableViewController {
     
+    //MARK: - Enums
     enum InputFields: CaseIterable {
         case avatar, firstName, lastName, mobile, email
         static func numberOfRows() -> Int {
@@ -16,6 +17,7 @@ class AddEditContactViewController: UITableViewController {
         }
     }
 
+    // MARK: - IBOutlets
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
@@ -23,11 +25,12 @@ class AddEditContactViewController: UITableViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
-    lazy var viewModel: AddEditVieModel = {
+    // MARK: - Private properties
+    private lazy var viewModel: AddEditVieModel = {
         return AddEditVieModel()
     }()
     
-    lazy var activityIndicator: UIActivityIndicatorView = {
+    private lazy var activityIndicator: UIActivityIndicatorView = {
         let _activityIndicator  = UIActivityIndicatorView()
         _activityIndicator.color = .gray
         _activityIndicator.hidesWhenStopped = true
@@ -43,8 +46,10 @@ class AddEditContactViewController: UITableViewController {
         return _activityIndicator
     }()
     
+    // MARK: - Properties
     var contact: Contact?
     
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -56,6 +61,7 @@ class AddEditContactViewController: UITableViewController {
         gradientView.setGradientBackground()
     }
 
+    // MARK: - IBActions methods
     @IBAction func onclickCancel(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
@@ -67,6 +73,7 @@ class AddEditContactViewController: UITableViewController {
 }
 
 extension AddEditContactViewController {
+    // MARK: - ViewModel Initialization
     func initAddEditViewModel() {
         viewModel.showAlert = { [weak self] () in
             DispatchQueue.main.async {
@@ -96,7 +103,8 @@ extension AddEditContactViewController {
 }
 
 extension AddEditContactViewController {
-    func setUI() {
+    // MARK: - Private methods
+    private func setUI() {
         self.tableView.tableFooterView = UIView(frame: .zero)
         clearBottomBorderColor()
         doneBarButton.isEnabled = false
@@ -104,7 +112,7 @@ extension AddEditContactViewController {
         setContact()
     }
     
-    func setContact() {
+    private func setContact() {
         guard let contact = contact else {
             return
         }
@@ -132,7 +140,7 @@ extension AddEditContactViewController {
 }
 
 extension AddEditContactViewController {
-    // MARK: - Table view data source
+    // MARK: - Table view data source & delegates
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -149,6 +157,7 @@ extension AddEditContactViewController {
 }
 
 extension AddEditContactViewController: UITextFieldDelegate {
+    // MARK: - TextField delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag: Int = textField.tag + 1
         guard let nextResponder = tableView?.viewWithTag(nextTag) else {

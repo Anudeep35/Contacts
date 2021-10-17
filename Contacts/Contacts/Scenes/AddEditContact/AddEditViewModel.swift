@@ -9,8 +9,10 @@ import Foundation
 
 class AddEditVieModel {
     
-    let apiService: APIServiceProtocol
+    // MARK: - Private properties
+    private let apiService: APIServiceProtocol
     
+    // MARK: - Callbacks or observers
     var isLoading: Bool = false {
         didSet {
             self.updateLoadingStatus?()
@@ -27,12 +29,18 @@ class AddEditVieModel {
     var showAlert: (()->())?
     var dismiss: (()->())?
     
+    /**
+     To initialize with apiService
+     
+     - parameter apiService: APIService to make network cal
+     */
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 }
 
 extension AddEditVieModel {
+    // MARK: - Public methods
     func updateContact(contact: Contact) {
         guard !isLoading else { return }
         

@@ -9,11 +9,15 @@ import UIKit
 
 class ContactDetailsViewController: UITableViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var contactIdLabel: UILabel!
+    
+    // MARK: - Properties
     var contact: Contact?
     
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -24,6 +28,8 @@ class ContactDetailsViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         gradientView.setGradientBackground()
     }
+    
+    // MARK: - IBActions methods
     @IBAction func onclickEdit(_ sender: Any) {
         presentEditContact()
     }
@@ -31,8 +37,10 @@ class ContactDetailsViewController: UITableViewController {
 }
 
 extension ContactDetailsViewController {
+    // MARK: - Private methods
     func setUI() {
         self.tableView.tableFooterView = UIView(frame: .zero)
+        self.navigationController?.navigationBar.tintColor = .theme
         clearBottomBorderColor()
     }
     
@@ -46,7 +54,7 @@ extension ContactDetailsViewController {
 }
 
 extension ContactDetailsViewController {
-    // MARK: - Table view data source
+    // MARK: - Table view data source & delegates
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -63,7 +71,7 @@ extension ContactDetailsViewController {
 
 extension ContactDetailsViewController {
     // MARK: - Navigation
-    func presentEditContact() {
+    private func presentEditContact() {
         guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
             return
         }

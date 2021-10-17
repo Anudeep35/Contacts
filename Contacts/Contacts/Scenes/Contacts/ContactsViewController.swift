@@ -9,6 +9,7 @@ import UIKit
 
 class ContactsViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView(frame: .zero)
@@ -16,17 +17,20 @@ class ContactsViewController: UIViewController {
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    lazy var viewModel: ContactsViewModel = {
+    // MARK: - Private properties
+    private lazy var viewModel: ContactsViewModel = {
         return ContactsViewModel()
     }()
 
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initContactViewModel()
         viewModel.initFetchContacts()
     }
-
+    
+    // MARK: - IBActions methods
     @IBAction func onclickAdd(_ sender: Any) {
         presentAddContact()
     }
@@ -34,7 +38,8 @@ class ContactsViewController: UIViewController {
 }
 
 extension ContactsViewController {
-    func initContactViewModel() {
+    // MARK: - ViewModel Initialization
+    private func initContactViewModel() {
         
         viewModel.showAlert = { [weak self] () in
             DispatchQueue.main.async {
@@ -66,7 +71,7 @@ extension ContactsViewController {
 
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source & delegates
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
@@ -103,7 +108,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ContactsViewController {
     // MARK: - Navigation
-    func pushToContactDetails(for indexPath:IndexPath) {
+    private func pushToContactDetails(for indexPath:IndexPath) {
         guard let contactDetailsVC = storyboard?.instantiateViewController(withIdentifier: "ContactDetailsViewController") as? ContactDetailsViewController else {
             return
         }
@@ -111,7 +116,7 @@ extension ContactsViewController {
         navigationController?.pushViewController(contactDetailsVC, animated: true)
     }
 
-    func presentAddContact() {
+    private func presentAddContact() {
         guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditContactViewController") as? AddEditContactViewController else {
             return
         }
