@@ -45,7 +45,7 @@ extension AddEditVieModel {
         guard !isLoading else { return }
         
         isLoading = true
-        self.apiService.request(router: Router.updateContact(id: contact.id ?? 0), parameters: contact) { (result: Result<Contact, APIError>) in
+        self.apiService.request(router: Router.updateContact(id: contact.id ?? 0, request: contact)) { (result: Result<UpdateResponse, APIError>) in
             switch result {
             case .success( _):
                 self.dismiss?()

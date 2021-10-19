@@ -47,3 +47,9 @@ struct ContactSection {
     let sectionTitle: String
     let contacts: [Contact]
 }
+
+struct UpdateResponse: Codable {
+    let id: String?
+    let createdAt: String?
+    let updatedAt: String?
+}

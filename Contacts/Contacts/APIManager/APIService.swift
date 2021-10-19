@@ -25,7 +25,7 @@ enum APIError: Error {
 
 protocol APIServiceProtocol {
     //MARK: - Protocols
-    func request<T: Codable>(router: Router, parameters: T?, completion: @escaping (Result<T, APIError>) -> ())
+    func request<T: Codable>(router: Router, completion: @escaping (Result<T, APIError>) -> ())
 }
 
 class APIService: APIServiceProtocol {
@@ -36,7 +36,7 @@ class APIService: APIServiceProtocol {
 
 extension APIService {
     // MARK: - Public methods
-    func request<T: Codable>(router: Router, parameters: T?, completion: @escaping (Result<T, APIError>) -> ()) {
+    func request<T: Codable>(router: Router, completion: @escaping (Result<T, APIError>) -> ()) {
         
         var components = URLComponents()
         components.scheme = router.scheme
@@ -50,13 +50,7 @@ extension APIService {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = router.method
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        if let params = parameters {
-            guard let data = try? JSONEncoder().encode(params) else {
-                completion(.failure(.invalidData))
-                return
-            }
-            urlRequest.httpBody = data
-        }
+        urlRequest.httpBody = router.body
         
         dataTask = defaultSession.dataTask(with: urlRequest) { data, response, error in
             

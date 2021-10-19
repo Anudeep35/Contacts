@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct EndPoint {
+    static let users = "/api/users"
+}
+
 enum RequestType: String {
     case get = "GET"
     case put = "PUT"
@@ -15,7 +19,7 @@ enum RequestType: String {
 
 enum Router {
     case getContacts(page: Int)
-    case updateContact(id: Int)
+    case updateContact(id: Int, request: Contact)
     
     var scheme: String {
         return "https"
@@ -28,9 +32,9 @@ enum Router {
     var path: String {
         switch self {
         case .getContacts:
-            return "/api/users"
-        case .updateContact(let id):
-            let endPoint = "/api/users"
+            return EndPoint.users
+        case .updateContact(let id, _):
+            let endPoint = EndPoint.users
             if id != 0 {
                 return endPoint + "/\(id)"
             }
@@ -51,11 +55,24 @@ enum Router {
         switch self {
         case .getContacts:
             return RequestType.get.rawValue
-        case .updateContact(let id):
+        case .updateContact(let id, _):
             if id != 0 {
                 return RequestType.put.rawValue
             }
             return RequestType.post.rawValue
+        }
+    }
+    
+    var body: Data? {
+        switch self {
+        case .getContacts:
+            return nil
+        case .updateContact(let id, let request):
+            if id != 0 { return nil }
+            guard let data = try? JSONEncoder().encode(request) else {
+                return nil
+            }
+            return data
         }
     }
 }

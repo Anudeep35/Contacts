@@ -13,6 +13,7 @@ class ContactsViewModel {
     // MARK: - Private properties
     private let apiService: APIServiceProtocol
     private var contacts: [Contact] = [Contact]()
+    private var page: Int = 1
     
     // MARK: - Callbacks or observers
     private var contactSections: [ContactSection] = [ContactSection]() {
@@ -57,7 +58,7 @@ extension ContactsViewModel {
         guard !isLoading else { return }
         
         isLoading = true
-        self.apiService.request(router: Router.getContacts(page: 1), parameters: nil) { (result: Result<ServiceResponse, APIError>) in
+        self.apiService.request(router: Router.getContacts(page: page)) { (result: Result<ServiceResponse, APIError>) in
             switch result {
             case .success(let contacts):
                 self.contacts = contacts.data
