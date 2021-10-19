@@ -14,13 +14,16 @@
 		FB5604C5271C416A00D9B0DB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604C4271C416A00D9B0DB /* UIColor+Extension.swift */; };
 		FB5604CA271C4CB000D9B0DB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604C9271C4CB000D9B0DB /* UIImageView+Extension.swift */; };
 		FB5604CF271C808000D9B0DB /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604CE271C808000D9B0DB /* UITableView+Extension.swift */; };
+		FB5604EF271F072B00D9B0DB /* ContactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5604EE271F072B00D9B0DB /* ContactsViewModelTests.swift */; };
+		FB5604F8271F0FC900D9B0DB /* Contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = FB5604F7271F0FC900D9B0DB /* Contacts.json */; };
+		FB560518271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB560517271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift */; };
+		FB560524271F303E00D9B0DB /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB560523271F303E00D9B0DB /* MockAPIService.swift */; };
 		FB60AD95271B11D2007EBD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD94271B11D2007EBD66 /* AppDelegate.swift */; };
 		FB60AD97271B11D2007EBD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */; };
 		FB60AD99271B11D2007EBD66 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD98271B11D2007EBD66 /* ContactsViewController.swift */; };
 		FB60AD9C271B11D2007EBD66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB60AD9A271B11D2007EBD66 /* Main.storyboard */; };
 		FB60AD9E271B11D4007EBD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB60AD9D271B11D4007EBD66 /* Assets.xcassets */; };
 		FB60ADA1271B11D4007EBD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB60AD9F271B11D4007EBD66 /* LaunchScreen.storyboard */; };
-		FB60ADAC271B11D4007EBD66 /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60ADAB271B11D4007EBD66 /* ContactsTests.swift */; };
 		FB60ADB7271B11D4007EBD66 /* ContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60ADB6271B11D4007EBD66 /* ContactsUITests.swift */; };
 		FB60ADD5271B202B007EBD66 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60ADD4271B202B007EBD66 /* ContactsViewModel.swift */; };
 		FB60ADDA271B2175007EBD66 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60ADD9271B2175007EBD66 /* APIService.swift */; };
@@ -55,6 +58,10 @@
 		FB5604C4271C416A00D9B0DB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FB5604C9271C4CB000D9B0DB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		FB5604CE271C808000D9B0DB /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		FB5604EE271F072B00D9B0DB /* ContactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelTests.swift; sourceTree = "<group>"; };
+		FB5604F7271F0FC900D9B0DB /* Contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contacts.json; sourceTree = "<group>"; };
+		FB560517271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditContactViewModelTests.swift; sourceTree = "<group>"; };
+		FB560523271F303E00D9B0DB /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		FB60AD91271B11D2007EBD66 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB60AD94271B11D2007EBD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +71,6 @@
 		FB60ADA0271B11D4007EBD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB60ADA2271B11D4007EBD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB60ADA7271B11D4007EBD66 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB60ADAB271B11D4007EBD66 /* ContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTests.swift; sourceTree = "<group>"; };
 		FB60ADAD271B11D4007EBD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB60ADB2271B11D4007EBD66 /* ContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB60ADB6271B11D4007EBD66 /* ContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUITests.swift; sourceTree = "<group>"; };
@@ -111,6 +117,38 @@
 			path = AddEditContact;
 			sourceTree = "<group>";
 		};
+		FB5604ED271F070400D9B0DB /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FB5604EE271F072B00D9B0DB /* ContactsViewModelTests.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		FB5604F6271F0E8200D9B0DB /* StubResponse */ = {
+			isa = PBXGroup;
+			children = (
+				FB5604F7271F0FC900D9B0DB /* Contacts.json */,
+			);
+			path = StubResponse;
+			sourceTree = "<group>";
+		};
+		FB560516271F2EE000D9B0DB /* AddEditContact */ = {
+			isa = PBXGroup;
+			children = (
+				FB560517271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift */,
+			);
+			path = AddEditContact;
+			sourceTree = "<group>";
+		};
+		FB560522271F301F00D9B0DB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FB560523271F303E00D9B0DB /* MockAPIService.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		FB60AD88271B11D2007EBD66 = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +189,10 @@
 		FB60ADAA271B11D4007EBD66 /* ContactsTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB60ADAB271B11D4007EBD66 /* ContactsTests.swift */,
+				FB560522271F301F00D9B0DB /* Common */,
+				FB5604ED271F070400D9B0DB /* Contacts */,
+				FB560516271F2EE000D9B0DB /* AddEditContact */,
+				FB5604F6271F0E8200D9B0DB /* StubResponse */,
 				FB60ADAD271B11D4007EBD66 /* Info.plist */,
 			);
 			path = ContactsTests;
@@ -352,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5604F8271F0FC900D9B0DB /* Contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +434,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB60ADAC271B11D4007EBD66 /* ContactsTests.swift in Sources */,
+				FB560524271F303E00D9B0DB /* MockAPIService.swift in Sources */,
+				FB560518271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift in Sources */,
+				FB5604EF271F072B00D9B0DB /* ContactsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
