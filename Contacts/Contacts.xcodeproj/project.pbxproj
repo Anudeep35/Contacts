@@ -18,6 +18,8 @@
 		FB5604F8271F0FC900D9B0DB /* Contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = FB5604F7271F0FC900D9B0DB /* Contacts.json */; };
 		FB560518271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB560517271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift */; };
 		FB560524271F303E00D9B0DB /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB560523271F303E00D9B0DB /* MockAPIService.swift */; };
+		FB56054D271F9E2B00D9B0DB /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56054C271F9E2B00D9B0DB /* ServiceResponse.swift */; };
+		FB560552271F9E4600D9B0DB /* UpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB560551271F9E4600D9B0DB /* UpdateResponse.swift */; };
 		FB60AD95271B11D2007EBD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD94271B11D2007EBD66 /* AppDelegate.swift */; };
 		FB60AD97271B11D2007EBD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */; };
 		FB60AD99271B11D2007EBD66 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60AD98271B11D2007EBD66 /* ContactsViewController.swift */; };
@@ -62,6 +64,8 @@
 		FB5604F7271F0FC900D9B0DB /* Contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contacts.json; sourceTree = "<group>"; };
 		FB560517271F2F1D00D9B0DB /* AddEditContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditContactViewModelTests.swift; sourceTree = "<group>"; };
 		FB560523271F303E00D9B0DB /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
+		FB56054C271F9E2B00D9B0DB /* ServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
+		FB560551271F9E4600D9B0DB /* UpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateResponse.swift; sourceTree = "<group>"; };
 		FB60AD91271B11D2007EBD66 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB60AD94271B11D2007EBD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB60AD96271B11D2007EBD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,7 +178,6 @@
 			children = (
 				FB60ADF0271B3565007EBD66 /* Extensions */,
 				FB60ADCE271B1304007EBD66 /* App */,
-				FB60ADCD271B12FC007EBD66 /* Common */,
 				FB60ADCC271B12E9007EBD66 /* Models */,
 				FB60ADCB271B12DD007EBD66 /* APIManager */,
 				FB60ADCA271B12D3007EBD66 /* Scenes */,
@@ -230,15 +233,10 @@
 			isa = PBXGroup;
 			children = (
 				FB60ADE3271B25DA007EBD66 /* Contact.swift */,
+				FB56054C271F9E2B00D9B0DB /* ServiceResponse.swift */,
+				FB560551271F9E4600D9B0DB /* UpdateResponse.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FB60ADCD271B12FC007EBD66 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		FB60ADCE271B1304007EBD66 /* App */ = {
@@ -424,6 +422,8 @@
 				FB60ADDF271B2180007EBD66 /* Router.swift in Sources */,
 				FB60AD97271B11D2007EBD66 /* SceneDelegate.swift in Sources */,
 				FB60ADE4271B25DA007EBD66 /* Contact.swift in Sources */,
+				FB560552271F9E4600D9B0DB /* UpdateResponse.swift in Sources */,
+				FB56054D271F9E2B00D9B0DB /* ServiceResponse.swift in Sources */,
 				FB5604B5271C180A00D9B0DB /* AddEditViewModel.swift in Sources */,
 				FB5604B0271BF7DE00D9B0DB /* AddEditContactViewController.swift in Sources */,
 				FB5604CF271C808000D9B0DB /* UITableView+Extension.swift in Sources */,
@@ -606,6 +606,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Contacts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +625,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Contacts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct ServiceResponse: Codable {
-    let page: Int
-    let data: [Contact]
-}
-
 struct Contact: Codable {
     let id: Int?
     let firstName: String?
@@ -46,10 +41,4 @@ struct Contact: Codable {
 struct ContactSection {
     let sectionTitle: String
     let contacts: [Contact]
-}
-
-struct UpdateResponse: Codable {
-    let id: String?
-    let createdAt: String?
-    let updatedAt: String?
 }
